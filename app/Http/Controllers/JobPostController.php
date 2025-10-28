@@ -107,10 +107,10 @@ class JobPostController extends Controller
 
     public function viewAdmin(){
 
-         $data['pending'] = User::join('job_post','job_post.userid','=','users.id')
+         $data['pending'] = User::join('tbl_jobs','tbl_jobs.userid','=','users.id')
                     ->whereIn('ispost', [0,2])
                     ->where('status', 'Pending')
-                    ->select('email','users.id','title', 'description','location','status','job_post.created_at')
+                    ->select('email','users.id','title', 'description','location','status','tbl_jobs.created_at')
                     ->get();
         return view('viewAdmin', $data);
     }
