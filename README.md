@@ -1,8 +1,29 @@
 # Laravel Project Setup Guide
 
-⚠️ Make sure you have **MySQL** installed and running locally before proceeding
-
 Follow these steps to set up and run the Laravel application after cloning the repository.
+
+## ✅ Prerequisites
+
+Make sure the following are installed:
+
+-   PHP >= 8.1
+-   Composer
+-   MySQL / MariaDB
+-   Node.js & npm (if using frontend assets)
+-   Git
+-   Laravel installed globally (optional but recommended)
+
+Check Laravel installation:
+
+```bash
+laravel --version
+```
+
+If not installed globally, Laravel can be installed via Composer:
+
+```bash
+composer global require laravel/installer
+```
 
 ## 1. Clone the Repository
 
