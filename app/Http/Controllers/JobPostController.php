@@ -38,7 +38,6 @@ class JobPostController extends Controller
                 'location'      =>  'required',
             ]);
 
-
             $user = User::where('email',$input['emailaddress'])
                         ->first();
 
@@ -147,7 +146,6 @@ class JobPostController extends Controller
         JobPost::where('userid', $id)
                 ->update(['status' => 'Spam']);
 
-
         return back()->with('success','The job was flagged as spam successfully!');
     }
 
@@ -164,9 +162,16 @@ class JobPostController extends Controller
                     $data['details'] = $job;
                 }
             }
+
+            if (!$data['details']){
+                return back()->with('error','Job details cannot be found.');
+            }
         }
         else  if ($src == 'jobboard'){
            $data['details'] = JobPost::find($id);
+           if (!$data['details']){
+                return back()->with('error','Job details cannot be found.');
+           }
         }
         else{
             return back()->with('error','Something went wrong. Please try again.');
